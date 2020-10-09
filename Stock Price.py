@@ -20,7 +20,7 @@ def InputStockPrices():
                     print("Your second stock prices: ", secondStock)
                     return [firstStock, secondStock]
 
-def check_limitation(firstStock, secondStock):
+# def check_limitation(firstStock, secondStock):
 
 
 def calculateProfit(firstStock, secondStock):
@@ -36,3 +36,13 @@ if __name__ == '__main__':
     print("-------------------------------------------------------------------------------------\n")
 
     test = InputStockPrices()
+
+    firstStock = None
+    secondStock = None
+
+    for i in test:
+        firstStock = i
+        secondStock = i
+
+    print("1st Stock: ", firstStock)
+    print("2nd Stock: ", secondStock)
