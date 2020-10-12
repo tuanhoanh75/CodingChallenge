@@ -1,4 +1,4 @@
-def check_rules():
+def getUserInput():
     while True:
         try:
             firstStock = \
