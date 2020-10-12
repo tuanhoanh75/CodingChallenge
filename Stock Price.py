@@ -42,4 +42,8 @@ if __name__ == '__main__':
     print("       (C) Each price is an integer number from 1 to 1000.")
     print("-------------------------------------------------------------------------------------\n")
 
-    listobj = check_rules()
+    listobj = getUserInput()
+    var_1, var_2 = listobj
+    print("\nType of value: ",type(listobj))
+    print("\nFirst Stock: ", var_1)
+    print("Second Stock: ", var_2)
