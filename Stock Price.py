@@ -3,12 +3,16 @@ def getUserInput():
         try:
             firstStock = \
                 list(map(int,
-                         input("Enter the prices for your 1st stock separated by space: ").strip().split()))
-            if 1 <= len(firstStock) <= 100000:
+                         input("Enter your 1st list of stock prices separated by space: ").strip().split()))
+
+            size_limit = all(i in range(1, 1001) for i in firstStock)
+            n_days = 1 <= len(firstStock) <= 100000
+
+            if n_days and size_limit:
                 print("Your first list of stock prices: ", firstStock)
             else:
-                print("Warning!: The list size doesn't meet the requirements! "
-                      "Please note: Your inputs = = number of days and the given limit is 1 to 100000 days!\n")
+                print("\nAttention: Your list contains values that doesn't meet the given requirements! "
+                      "Please try again.")
                 continue
         except Exception as e:
             print(e, "\n")
@@ -17,12 +21,16 @@ def getUserInput():
                 try:
                     secondStock = \
                         list(map(int,
-                                 input("\nEnter the prices for your 2nd stock separated by space: ").strip().split()))
-                    if 1 <= len(secondStock) <= 100000:
+                                 input("\nEnter your 2nd list of stock prices separated by space: ").strip().split()))
+
+                    size_limit = all(i in range(1, 1001) for i in secondStock)
+                    n_days = 1 <= len(secondStock) <= 100000
+
+                    if n_days and size_limit:
                         print("Your second list of stock prices: ", secondStock)
                     else:
-                        print("Warning!: The list size doesn't meet the requirements! "
-                              "Please note: Your inputs == number of days and the given limit is 1 to 100000 days!\n")
+                        print("Attention: Your list contains values that doesn't meet the given requirements! "
+                              "Please try again.")
                         continue
                 except Exception as e:
                     print(e)
@@ -43,7 +51,7 @@ if __name__ == '__main__':
     print("-------------------------------------------------------------------------------------\n")
 
     listobj = getUserInput()
-    var_1, var_2 = listobj
-    print("\nType of value: ",type(listobj))
-    print("\nFirst Stock: ", var_1)
-    print("Second Stock: ", var_2)
+    first, second = listobj
+
+    print("\nFirst Stock: ", first)
+    print("Second Stock: ", second)
