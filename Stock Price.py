@@ -6,7 +6,7 @@ def getUserInput():
                          input("Enter your 1st list of stock prices separated by space: ").strip().split()))
 
             size_limit = all(i in range(1, 1001) for i in firstStock)
-            n_days = 1 <= len(firstStock) <= 100000
+            n_days = len(firstStock) in range(1, 100001)
 
             if n_days and size_limit:
                 print("Your first list of stock prices: ", firstStock)
@@ -24,7 +24,7 @@ def getUserInput():
                                  input("\nEnter your 2nd list of stock prices separated by space: ").strip().split()))
 
                     size_limit = all(i in range(1, 1001) for i in secondStock)
-                    n_days = 1 <= len(secondStock) <= 100000
+                    n_days = len(secondStock) in range(1, 100001)
 
                     if n_days and size_limit:
                         print("Your second list of stock prices: ", secondStock)
