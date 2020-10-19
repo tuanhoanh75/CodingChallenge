@@ -1,0 +1,29 @@
+Skizzierung einer Funktion:
+
+Gegegeben sei: 
+a = [1 10 7 11 4 28]
+b = [2 5 4 12 13 12]
+
+Init: profit = [0 0 0 0 0 0]
+
+Ansatz: 
+(i) Indizierter Vergleich des min. Wertes und darausfolgend die Berechnung des Profits
+-> Bsp.: a[0] und b[0] = a[0] ist kleiner somit als min_price = 1 gesetzt
+-> Profit: profit[0] = 0, profit[1] = 9
+-> schreibe in profit[i] = [0 9 0 0 0 0]
+
+(ii) Fortsetzung indizierten Vergleichs bei a,b[3] = 7 < 4 
+-> neuer min_price = 4 gefunden und gesetzt
+-> Berechnung Profit und vgl. mit berechnet und vorherigen profit profit[i-1]
+	-> Profit: b[2] = 0, b[3] = 8 (vgl. mit vorherigen Profit[i-1] = 9 => kleiner weiter)
+	profit[i] = [0 9 9 9 0 0]
+	-> Profit: b[4] = 9, dann vgl. mit vorherigen Profit[i-1] = 9 <= 9 neu addieren neuen profit hinzu
+	-> profit[i] = [0 9 9 9 18 0]
+
+(iii) Fortsetzung indizierten Vergleichs bei a,b[4] = 4 < 13
+-> neuer min_price = 4 gefunden und gesetzt
+-> Berechnung Profit und vgl. mit berechnet und vorherigen profit profit[i-1]
+	-> Profit: a[4] = 0, a[5] = 24 -> addieren neuen profit[i] hinzu, da profit[4] = 18 <= 24
+	-> return profit[i] = 42
+ 
+ 
