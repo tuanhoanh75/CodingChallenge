@@ -17,6 +17,8 @@ def check_input():
 
 
 def countTraders(volumes):
+    # Set number of passes/runs
+    runs = range(2, max(volumes)+1)
     pass
 
 
@@ -28,3 +30,5 @@ if __name__ == '__main__':
     print("----------------------------------------------------------------------------\n")
 
     volumes = check_input()
+
+    print("traders =", countTraders(volumes))
