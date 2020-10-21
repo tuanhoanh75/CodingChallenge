@@ -1,0 +1,53 @@
+Calculate the possible smallest amount of traders given by the visible order volumes
+
+Note: Is the k-value in the given list divisible by X-value then return the amount of traders
+
+A.) Beispielszenario: [30 10 9 8 6]
+
+1. Angenommen Trader(s) wählt:
+	a.) X = 2, somit stammen nur Orders mit [30, 10, 8, 6]
+   	b.) X = 3, somit stammen nur Orders mit [30, 9, 6] 
+	c.) X = 4, somit stammen nur Orders mit [8]
+	d.) X = 5, somit stammen nur Orders mit [30, 10]
+	e.) X = 6, somit stammen nur Orders mit [30, 6]
+	f.) X = 7, somit stammen keine Order davon
+	g.) X = 8, somit stammen nur Orders mit [8]
+	etc.
+	
+2. Nur a) und b) werden berücksichtigt, da die Kombination mit dessen X-Werten, die gesamte Order bereits abdeckt
+	-> Trotz möglicher Order Kollisionen
+
+
+B.) Beispielszenario: [2 3 4 5 6 7 8 9 10 11 12]
+
+1. Angenommen Trader(s) wählt:
+	a.) X = 2 => [2 4 6 8 10 12]	get [...] - Start für die Suche
+	b.) X = 3 => [3 6 9 12]		get 9
+	c.) X = 4 => [4 8 12]
+	d.) X = 5 => [5 10]		get 5
+	e.) X = 6 => [6 12]
+	f.) X = 7 => [7]		get 7
+	g.) X = 8 => [8]
+	h.) X = 9 => [9]
+	i.) X = 10 => [10]
+	j.) X = 11 => [11]		get 11
+	k.) X = 12 => [12]
+
+	1.1) Um die Ausgangsliste zu erhalten, werden a.), b.), d.), f.) und j.) miteinander gejoint (erfolgt rekursiv).
+
+2. Nur a.), b.), d.), f.) und j.) werden berücksichtigt, da die Kombination mit dessen X-Werten die gesamte Order bereits abdeckt
+	-> Ergbebnis:	- X = 2,
+			- X = 3,
+			- X = 5,
+			- X = 7,
+			- X = 11
+
+=> Merke: 
+	- Für den Fall, dass es ein X-Value exisitiert mit dem es möglich ist alle k-Value in der volume liste zu teilen, so return 1 (Anzahl an Trader)! 
+	
+	- Anzahl der Runs ist limitiert durch den max k-Value in der Volumes Liste mit den Orders
+		-> bei Bsp. B.) ist der max Run durch den k-Value = 12 begrenzt
+	
+	- Ein vollständiger Run ist nicht nötig, wenn die Volumes Liste früher vervollständig wurde.
+		-> Im Bsp. B.) kann der Run nach j.) abgebrochen werden
+		-> Bei Bsp.) A.) kann der Run nach b.) unterbrochen werden 
